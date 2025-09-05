@@ -1,31 +1,31 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const sections = document.querySelectorAll('section:not(#hero)');
-  const navIcons = document.querySelectorAll('.nav-icon');
-  const hiddenNav = document.querySelector('.hidden-nav');
-  const easterEgg = document.querySelector('.easter-egg');
-  const accessModal = document.querySelector('.access-modal');
-  const accessBtn = document.querySelector('.access-btn');
-  const exploreBtn = document.querySelector('.explore-btn');
-  const body = document.querySelector('body');
-  const particlesContainer = document.getElementById('particles');
-  const passwordSection = document.getElementById('password-section');
-  const submitPasswordBtn = document.getElementById('submit-password');
-  const closePasswordBtn = document.getElementById('close-password');
-  const passwordInput = document.querySelector('.password-input');
-  const transmitBtn = document.getElementById('transmit-btn');
-  const transmissionOverlay = document.getElementById('transmission-overlay');
-  const progressBar = document.getElementById('progress-bar');
-  const transmissionText = document.getElementById('transmission-text');
-  const secretCloseBtn = document.getElementById('secret-close');
-  const secretCodeReveal = document.getElementById('secret-code-reveal');
-  const contactForm = document.getElementById('contact-form');
-  const celebrationContainer = document.getElementById('celebration');
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  const timelineDots = document.querySelectorAll('.timeline-dot');
-  const testimonialItems = document.querySelectorAll('.testimonial-item');
-  const prevButton = document.querySelector('.testimonial-prev');
-  const nextButton = document.querySelector('.testimonial-next');
-  const skillBars = document.querySelectorAll('.skill-progress');
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll("section:not(#hero)");
+  const navIcons = document.querySelectorAll(".nav-icon");
+  const hiddenNav = document.querySelector(".hidden-nav");
+  const easterEgg = document.querySelector(".easter-egg");
+  const accessModal = document.querySelector(".access-modal");
+  const accessBtn = document.querySelector(".access-btn");
+  const exploreBtn = document.querySelector(".explore-btn");
+  const body = document.querySelector("body");
+  const particlesContainer = document.getElementById("particles");
+  const passwordSection = document.getElementById("password-section");
+  const submitPasswordBtn = document.getElementById("submit-password");
+  const closePasswordBtn = document.getElementById("close-password");
+  const passwordInput = document.querySelector(".password-input");
+  const transmitBtn = document.getElementById("transmit-btn");
+  const transmissionOverlay = document.getElementById("transmission-overlay");
+  const progressBar = document.getElementById("progress-bar");
+  const transmissionText = document.getElementById("transmission-text");
+  const secretCloseBtn = document.getElementById("secret-close");
+  const secretCodeReveal = document.getElementById("secret-code-reveal");
+  const contactForm = document.getElementById("contact-form");
+  const celebrationContainer = document.getElementById("celebration");
+  const themeToggleBtn = document.getElementById("theme-toggle");
+  const timelineDots = document.querySelectorAll(".timeline-dot");
+  const testimonialItems = document.querySelectorAll(".testimonial-item");
+  const prevButton = document.querySelector(".testimonial-prev");
+  const nextButton = document.querySelector(".testimonial-next");
+  const skillBars = document.querySelectorAll(".skill-progress");
 
   let currentTestimonial = 0;
   let accessGranted = false;
@@ -34,12 +34,12 @@ document.addEventListener('DOMContentLoaded', function () {
   function createParticles() {
     const count = 50;
     for (let i = 0; i < count; i++) {
-      const particle = document.createElement('div');
-      particle.classList.add('particle');
-      particle.style.left = Math.random() * 100 + 'vw';
-      particle.style.top = Math.random() * 100 + 'vh';
-      particle.style.animationDelay = Math.random() * 15 + 's';
-      particle.style.width = Math.random() * 4 + 2 + 'px';
+      const particle = document.createElement("div");
+      particle.classList.add("particle");
+      particle.style.left = Math.random() * 100 + "vw";
+      particle.style.top = Math.random() * 100 + "vh";
+      particle.style.animationDelay = Math.random() * 15 + "s";
+      particle.style.width = Math.random() * 4 + 2 + "px";
       particle.style.height = particle.style.width;
       particlesContainer.appendChild(particle);
     }
@@ -49,32 +49,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Theme: init from storage
   try {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-      document.body.classList.add('light-theme');
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      document.body.classList.add("light-theme");
     }
   } catch {}
 
   function setThemeIcon() {
     if (!themeToggleBtn) return;
-    const icon = themeToggleBtn.querySelector('i');
+    const icon = themeToggleBtn.querySelector("i");
     if (!icon) return;
-    if (document.body.classList.contains('light-theme')) {
-      icon.className = 'fas fa-sun';
+    if (document.body.classList.contains("light-theme")) {
+      icon.className = "fas fa-sun";
     } else {
-      icon.className = 'fas fa-moon';
+      icon.className = "fas fa-moon";
     }
   }
 
   setThemeIcon();
   if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('light-theme');
+    themeToggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light-theme");
       setThemeIcon();
       try {
         localStorage.setItem(
-          'theme',
-          document.body.classList.contains('light-theme') ? 'light' : 'dark'
+          "theme",
+          document.body.classList.contains("light-theme") ? "light" : "dark"
         );
       } catch {}
     });
@@ -82,23 +82,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Initially hide all sections except hero
   sections.forEach((section) => {
-    section.style.display = 'none';
+    section.style.display = "none";
   });
 
   // Testimonials slider functionality
   function showTestimonial(index) {
-    testimonialItems.forEach((item) => (item.style.display = 'none'));
-    testimonialItems[index].style.display = 'block';
+    testimonialItems.forEach((item) => (item.style.display = "none"));
+    testimonialItems[index].style.display = "block";
   }
 
-  prevButton.addEventListener('click', () => {
+  prevButton.addEventListener("click", () => {
     currentTestimonial =
       (currentTestimonial - 1 + testimonialItems.length) %
       testimonialItems.length;
     showTestimonial(currentTestimonial);
   });
 
-  nextButton.addEventListener('click', () => {
+  nextButton.addEventListener("click", () => {
     currentTestimonial = (currentTestimonial + 1) % testimonialItems.length;
     showTestimonial(currentTestimonial);
   });
@@ -108,15 +108,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function grantAccess() {
     accessGranted = true;
-    exploreBtn.textContent = 'Access Granted';
-    exploreBtn.classList.add('granted');
+    exploreBtn.textContent = "Access Granted";
+    exploreBtn.classList.add("granted");
 
     // Show hidden sections with animation
     setTimeout(() => {
       sections.forEach((section) => {
-        section.style.display = 'flex';
+        section.style.display = "flex";
         setTimeout(() => {
-          section.classList.add('visible');
+          section.classList.add("visible");
         }, 100);
       });
 
@@ -124,58 +124,58 @@ document.addEventListener('DOMContentLoaded', function () {
       initTimelineFocus();
 
       // Show navigation and easter egg
-      hiddenNav.classList.add('visible');
+      hiddenNav.classList.add("visible");
       setTimeout(() => {
-        easterEgg.classList.add('visible');
+        easterEgg.classList.add("visible");
       }, 1000);
 
       // Scroll to about section
-      document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById("about").scrollIntoView({ behavior: "smooth" });
     }, 1000);
   }
 
   // Explore button functionality
-  exploreBtn.addEventListener('click', () => {
+  exploreBtn.addEventListener("click", () => {
     grantAccess();
   });
 
   // Navigation functionality
   navIcons.forEach((icon, index) => {
-    icon.addEventListener('click', () => {
+    icon.addEventListener("click", () => {
       if (!accessGranted) {
         showAccessDenied();
         return;
       }
 
-      const sections = document.querySelectorAll('section');
-      sections[index].scrollIntoView({ behavior: 'smooth' });
+      const sections = document.querySelectorAll("section");
+      sections[index].scrollIntoView({ behavior: "smooth" });
     });
   });
 
   // Show access denied modal
   function showAccessDenied() {
-    accessModal.classList.add('active');
+    accessModal.classList.add("active");
   }
 
   // Close access denied modal
-  accessBtn.addEventListener('click', () => {
-    accessModal.classList.remove('active');
+  accessBtn.addEventListener("click", () => {
+    accessModal.classList.remove("active");
   });
 
   // Add click effect to dots
   timelineDots.forEach((dot) => {
-    dot.addEventListener('click', () => {
+    dot.addEventListener("click", () => {
       // Create ripple effect
-      const ripple = document.createElement('div');
-      ripple.style.position = 'absolute';
-      ripple.style.width = '40px';
-      ripple.style.height = '40px';
-      ripple.style.borderRadius = '50%';
-      ripple.style.background = 'rgba(138, 43, 226, 0.3)';
-      ripple.style.left = '50%';
-      ripple.style.top = '50%';
-      ripple.style.transform = 'translate(-50%, -50%)';
-      ripple.style.animation = 'ripple 0.6s linear';
+      const ripple = document.createElement("div");
+      ripple.style.position = "absolute";
+      ripple.style.width = "40px";
+      ripple.style.height = "40px";
+      ripple.style.borderRadius = "50%";
+      ripple.style.background = "rgba(138, 43, 226, 0.3)";
+      ripple.style.left = "50%";
+      ripple.style.top = "50%";
+      ripple.style.transform = "translate(-50%, -50%)";
+      ripple.style.animation = "ripple 0.6s linear";
 
       dot.appendChild(ripple);
 
@@ -190,9 +190,9 @@ document.addEventListener('DOMContentLoaded', function () {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const width = entry.target.getAttribute('data-width');
+          const width = entry.target.getAttribute("data-width");
           entry.target.style.width = width;
-          entry.target.classList.add('animate');
+          entry.target.classList.add("animate");
         }
       });
     },
@@ -204,172 +204,174 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Easter egg functionality
-  const egg = document.querySelector('.easter-egg');
-  const modal = document.querySelector('.secret-modal');
-  const closeModal = document.querySelectorAll('.close-modal');
+  const egg = document.querySelector(".easter-egg");
+  const modal = document.querySelector(".secret-modal");
+  const closeModal = document.querySelectorAll(".close-modal");
 
-  egg.addEventListener('click', () => {
+  egg.addEventListener("click", () => {
     if (!accessGranted) {
       showAccessDenied();
       return;
     }
-    passwordSection.classList.add('active');
+    passwordSection.classList.add("active");
   });
 
   // Close modals
   closeModal.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener("click", (e) => {
       e.target
-        .closest('.secret-modal, .project-modal')
-        .classList.remove('active');
+        .closest(".secret-modal, .project-modal")
+        .classList.remove("active");
     });
   });
 
   // Close secret modal with button
-  secretCloseBtn.addEventListener('click', () => {
-    modal.classList.remove('active');
+  secretCloseBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
   });
 
   // Password section functionality
-  submitPasswordBtn.addEventListener('click', () => {
-    if (passwordInput.value === 'EN1GM4-2025') {
-      passwordSection.classList.remove('active');
+  submitPasswordBtn.addEventListener("click", () => {
+    if (passwordInput.value === "EN1GM4-2025") {
+      passwordSection.classList.remove("active");
       createCelebration();
-      modal.classList.add('active');
-      document.querySelectorAll('.project-card').forEach((card) => {
-        card.classList.add('unlocked');
+      modal.classList.add("active");
+      document.querySelectorAll(".project-card").forEach((card) => {
+        card.classList.add("unlocked");
       });
     } else {
-      passwordInput.style.borderColor = 'var(--neon-pink)';
-      passwordInput.style.boxShadow = '0 0 10px var(--neon-pink)';
+      passwordInput.style.borderColor = "var(--neon-pink)";
+      passwordInput.style.boxShadow = "0 0 10px var(--neon-pink)";
       setTimeout(() => {
-        passwordInput.style.borderColor = 'var(--accent)';
-        passwordInput.style.boxShadow = 'none';
+        passwordInput.style.borderColor = "var(--accent)";
+        passwordInput.style.boxShadow = "none";
       }, 1000);
     }
   });
 
-  closePasswordBtn.addEventListener('click', () => {
-    passwordSection.classList.remove('active');
+  closePasswordBtn.addEventListener("click", () => {
+    passwordSection.classList.remove("active");
   });
 
   // Create celebration effect
   function createCelebration() {
-    celebrationContainer.innerHTML = '';
+    celebrationContainer.innerHTML = "";
     for (let i = 0; i < 100; i++) {
-      const confetti = document.createElement('div');
-      confetti.classList.add('confetti');
-      confetti.style.left = Math.random() * 100 + 'vw';
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = Math.random() * 100 + "vw";
       confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 60%)`;
       confetti.style.animation = `confetti-fall ${
         Math.random() * 3 + 2
       }s linear forwards`;
-      confetti.style.animationDelay = Math.random() * 2 + 's';
+      confetti.style.animationDelay = Math.random() * 2 + "s";
       celebrationContainer.appendChild(confetti);
     }
 
     setTimeout(() => {
-      celebrationContainer.innerHTML = '';
+      celebrationContainer.innerHTML = "";
     }, 5000);
   }
 
   // Project card modals
-  const DetailBtns = document.querySelectorAll('.detail-btn');
-  const projectModals = document.querySelectorAll('.project-modal');
-  const CloseBtns = document.querySelectorAll('.close-btn');
+  const DetailBtns = document.querySelectorAll(".detail-btn");
+  const projectModals = document.querySelectorAll(".project-modal");
+  const CloseBtns = document.querySelectorAll(".close-btn");
 
   DetailBtns.forEach((card) => {
-    card.addEventListener('click', (e) => {
+    card.addEventListener("click", (e) => {
       if (!accessGranted) {
         showAccessDenied();
         return;
       }
 
-      const modalId = card.getAttribute('data-modal');
-      document.getElementById(modalId).classList.add('active');
+      const modalId = card.getAttribute("data-modal");
+      document.getElementById(modalId).classList.add("active");
     });
   });
 
   CloseBtns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener("click", (e) => {
       e.stopPropagation();
-      e.target.closest('.project-modal').classList.remove('active');
+      e.target.closest(".project-modal").classList.remove("active");
     });
   });
 
   // Transmission animation
-  if (transmitBtn) transmitBtn.addEventListener('click', () => {
-    const name = document.getElementById('contact-name').value;
-    const email = document.getElementById('contact-email').value;
-    const message = document.getElementById('contact-message').value;
+  if (transmitBtn)
+    transmitBtn.addEventListener("click", () => {
+      const name = document.getElementById("contact-name").value;
+      const email = document.getElementById("contact-email").value;
+      const message = document.getElementById("contact-message").value;
 
-    if (!name || !email || !message) {
-      // Highlight empty fields
-      const inputs = document.querySelectorAll('.terminal-input');
-      inputs.forEach((input) => {
-        if (!input.value) {
-          input.style.borderColor = 'var(--neon-pink)';
-          input.style.boxShadow = '0 0 10px var(--neon-pink)';
-          setTimeout(() => {
-            input.style.borderColor = '';
-            input.style.boxShadow = '';
-          }, 2000);
-        }
-      });
-      return;
-    }
-
-    // Show transmission overlay
-    transmissionOverlay.classList.add('active');
-
-    // Animate progress bar
-    let progress = 0;
-    const interval = setInterval(() => {
-      progress += 1;
-      progressBar.style.width = progress + '%';
-
-      if (progress === 20)
-        transmissionText.textContent = 'Establishing quantum encryption...';
-      if (progress === 40)
-        transmissionText.textContent = 'Routing through secure channels...';
-      if (progress === 60)
-        transmissionText.textContent = 'Transmitting data packets...';
-      if (progress === 80)
-        transmissionText.textContent = 'Finalizing transmission...';
-
-      if (progress >= 100) {
-        clearInterval(interval);
-
-        // Small delay so bar hits 100% first, then show complete message
-        setTimeout(() => {
-          transmissionText.textContent =
-            'Transmission complete! Message received.';
-          secretCodeReveal.style.display = 'block';
-
-          setTimeout(() => {
-            transmissionOverlay.classList.remove('active');
-            progressBar.style.width = '0%';
-            transmissionText.textContent = 'Initializing secure connection...';
-            secretCodeReveal.style.display = 'none';
-
-            // Reset form
-            document.getElementById('contact-name').value = '';
-            document.getElementById('contact-email').value = '';
-            document.getElementById('contact-message').value = '';
-          }, 5000);
-        }, 3000); 
+      if (!name || !email || !message) {
+        // Highlight empty fields
+        const inputs = document.querySelectorAll(".terminal-input");
+        inputs.forEach((input) => {
+          if (!input.value) {
+            input.style.borderColor = "var(--neon-pink)";
+            input.style.boxShadow = "0 0 10px var(--neon-pink)";
+            setTimeout(() => {
+              input.style.borderColor = "";
+              input.style.boxShadow = "";
+            }, 2000);
+          }
+        });
+        return;
       }
-    }, 30);
-  });
+
+      // Show transmission overlay
+      transmissionOverlay.classList.add("active");
+
+      // Animate progress bar
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += 1;
+        progressBar.style.width = progress + "%";
+
+        if (progress === 20)
+          transmissionText.textContent = "Establishing quantum encryption...";
+        if (progress === 40)
+          transmissionText.textContent = "Routing through secure channels...";
+        if (progress === 60)
+          transmissionText.textContent = "Transmitting data packets...";
+        if (progress === 80)
+          transmissionText.textContent = "Finalizing transmission...";
+
+        if (progress >= 100) {
+          clearInterval(interval);
+
+          // Small delay so bar hits 100% first, then show complete message
+          setTimeout(() => {
+            transmissionText.textContent =
+              "Transmission complete! Message received.";
+            secretCodeReveal.style.display = "block";
+
+            setTimeout(() => {
+              transmissionOverlay.classList.remove("active");
+              progressBar.style.width = "0%";
+              transmissionText.textContent =
+                "Initializing secure connection...";
+              secretCodeReveal.style.display = "none";
+
+              // Reset form
+              document.getElementById("contact-name").value = "";
+              document.getElementById("contact-email").value = "";
+              document.getElementById("contact-message").value = "";
+            }, 5000);
+          }, 3000);
+        }
+      }, 30);
+    });
 
   // Scroll animation for elements
-  const fadeElements = document.querySelectorAll('.fade-in');
+  const fadeElements = document.querySelectorAll(".fade-in");
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && accessGranted) {
-          entry.target.classList.add('visible');
+          entry.target.classList.add("visible");
         }
       });
     },
@@ -379,19 +381,19 @@ document.addEventListener('DOMContentLoaded', function () {
   fadeElements.forEach((el) => observer.observe(el));
 
   // Terminal input focus
-  const terminalInputs = document.querySelectorAll('.terminal-input');
+  const terminalInputs = document.querySelectorAll(".terminal-input");
   terminalInputs.forEach((input) => {
-    input.addEventListener('focus', () => {
-      input.parentElement.classList.add('focused');
+    input.addEventListener("focus", () => {
+      input.parentElement.classList.add("focused");
     });
 
-    input.addEventListener('blur', () => {
-      input.parentElement.classList.remove('focused');
+    input.addEventListener("blur", () => {
+      input.parentElement.classList.remove("focused");
     });
   });
 
   // Prevent scrolling if access not granted
-  window.addEventListener('scroll', (e) => {
+  window.addEventListener("scroll", (e) => {
     if (!accessGranted && window.scrollY > window.innerHeight * 0.5) {
       window.scrollTo(0, 0);
       showAccessDenied();
@@ -399,44 +401,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Modern contact form: mailto redirect
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = (document.getElementById('cf-name') || {}).value || '';
-      const email = (document.getElementById('cf-email') || {}).value || '';
-      const subject = (document.getElementById('cf-subject') || {}).value || '';
-      const message = (document.getElementById('cf-message') || {}).value || '';
-
-      const required = [
-        { el: document.getElementById('cf-name'), ok: !!name.trim() },
-        { el: document.getElementById('cf-email'), ok: !!email.trim() },
-        { el: document.getElementById('cf-subject'), ok: !!subject.trim() },
-        { el: document.getElementById('cf-message'), ok: !!message.trim() },
-      ];
-      let valid = true;
-      required.forEach((r) => {
-        if (!r.el) return;
-        if (!r.ok) {
-          r.el.style.borderColor = 'var(--neon-pink)';
-          r.el.style.boxShadow = '0 0 10px var(--neon-pink)';
-          valid = false;
-          setTimeout(() => {
-            r.el.style.borderColor = 'var(--accent)';
-            r.el.style.boxShadow = 'none';
-          }, 1200);
-        }
-      });
-      if (!valid) return;
-
-      const mail = 'kanchansati36@gmail.com';
-      const subj = encodeURIComponent(`${subject} — from ${name}`);
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-      window.location.href = `mailto:${mail}?subject=${subj}&body=${body}`;
-    });
-  }
 
   // Add interactive background effect on mouse move
-  document.addEventListener('mousemove', (e) => {
+  document.addEventListener("mousemove", (e) => {
     if (!accessGranted) return;
 
     const x = e.clientX / window.innerWidth;
@@ -455,11 +422,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Timeline focus-on-scroll effect
   function initTimelineFocus() {
-    const items = Array.from(document.querySelectorAll('.timeline-item'));
+    const items = Array.from(document.querySelectorAll(".timeline-item"));
     if (!items.length) return;
 
     // Set the first item focused initially
-    items.forEach((it, idx) => it.classList.toggle('in-focus', idx === 0));
+    items.forEach((it, idx) => it.classList.toggle("in-focus", idx === 0));
 
     let ticking = false;
     function updateFocus() {
@@ -475,7 +442,9 @@ document.addEventListener('DOMContentLoaded', function () {
           bestIdx = idx;
         }
       });
-      items.forEach((item, idx) => item.classList.toggle('in-focus', idx === bestIdx));
+      items.forEach((item, idx) =>
+        item.classList.toggle("in-focus", idx === bestIdx)
+      );
     }
 
     function onScroll() {
@@ -488,8 +457,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', updateFocus);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", updateFocus);
     // Run once on init
     updateFocus();
   }
