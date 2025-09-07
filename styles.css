@@ -1990,6 +1990,25 @@ section.visible {
     font-size: 1.2rem;
   }
 
+  /* Make hero content breathe on small screens */
+  .hero-content {
+    padding: 0 1rem;
+  }
+
+  /* Allow subtitle to wrap and relax typing effect */
+  .typewriter {
+    white-space: normal;
+    border-right: none;
+    animation: none;
+    letter-spacing: 0.05em;
+  }
+
+  /* Tweak CTA sizing for smaller viewports */
+  .explore-btn {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+  }
+
   .hidden-nav {
     bottom: 1rem;
     top: auto;
@@ -2024,6 +2043,27 @@ section.visible {
 
   section {
     padding: 6rem 1.5rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .explore-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  section {
+    padding: 5rem 1rem;
   }
 }
 
