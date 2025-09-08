@@ -37,7 +37,7 @@ body {
     ),
     radial-gradient(circle at 85% 30%, rgba(100, 0, 150, 0.1), transparent 25%);
   background-attachment: fixed;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   transition: filter 0.8s ease;
 }
 
@@ -79,12 +79,12 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-weight: 700;
 }
 
 .monospace {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
 }
 
 section {
@@ -242,7 +242,7 @@ section.visible {
 .glitch {
   position: relative;
   display: inline-block;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 .glitch::before,
@@ -486,7 +486,7 @@ section.visible {
 }
 
 #hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -532,7 +532,7 @@ section.visible {
   transition: all 0.3s ease;
   box-shadow: 0 0 15px var(--accent);
   z-index: 1;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 .explore-btn:hover {
@@ -542,7 +542,7 @@ section.visible {
 }
 
 .explore-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -622,7 +622,7 @@ section.visible {
   transition: all 0.3s ease;
   color: var(--accent-glow);
   border: 1px solid var(--accent);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
 }
 
 .nav-icon:hover::after {
@@ -735,7 +735,7 @@ section.visible {
 }
 
 .timeline-connector::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -787,7 +787,7 @@ section.visible {
 }
 
 .timeline-category-icon::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
@@ -814,7 +814,7 @@ section.visible {
 }
 
 .timeline-category-title::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
@@ -872,7 +872,7 @@ section.visible {
   left: 50%;
   transform: translateX(-50%);
   color: var(--accent-glow);
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
   font-size: 0.9rem;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -901,7 +901,7 @@ section.visible {
 }
 
 .timeline-content::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -933,7 +933,7 @@ section.visible {
   font-size: 0.9rem;
   color: var(--accent-glow);
   margin-bottom: 0.8rem;
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
   letter-spacing: 1px;
 }
 
@@ -954,7 +954,7 @@ section.visible {
 }
 
 .timeline-place::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 50%;
@@ -1001,11 +1001,11 @@ section.visible {
 }
 
 .timeline-hover-content li::before {
-  content: '>';
+  content: ">";
   position: absolute;
   left: 0;
   color: var(--accent-glow);
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
 }
 
 /* Responsive Design for Timeline */
@@ -1137,21 +1137,26 @@ section.visible {
   height: auto;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(0 0 2px rgba(255,255,255,0.3));
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
 }
 
 .tool-icon::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: -2px;
   border-radius: inherit;
-  background: conic-gradient(var(--accent), var(--neon-blue), var(--neon-pink), var(--accent));
+  background: conic-gradient(
+    var(--accent),
+    var(--neon-blue),
+    var(--neon-pink),
+    var(--accent)
+  );
   animation: spin 4s linear infinite;
   filter: blur(0.3px);
 }
 
 .tool-icon::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 4px;
   border-radius: inherit;
@@ -1178,7 +1183,7 @@ section.visible {
 
 .skill-percentage {
   color: var(--accent-glow);
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
 }
 
 .skill-bar {
@@ -1198,7 +1203,7 @@ section.visible {
 }
 
 .skill-progress::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -1297,8 +1302,8 @@ section.visible {
 }
 
 .author-image::before {
-  content: '\f007';
-  font-family: 'Font Awesome 5 Free';
+  content: "\f007";
+  font-family: "Font Awesome 5 Free";
   font-weight: 900;
   position: absolute;
   top: 50%;
@@ -1390,7 +1395,7 @@ section.visible {
 }
 
 .project-card::before {
-  content: 'LOCKED';
+  content: "LOCKED";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1399,7 +1404,7 @@ section.visible {
   color: var(--text-dim);
   z-index: 2;
   transition: all 0.5s ease;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 .project-content {
@@ -1446,7 +1451,7 @@ section.visible {
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.8rem;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 .project-details-btn:hover {
@@ -1473,7 +1478,7 @@ section.visible {
 }
 
 .proj-link {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 1.05rem;
   color: var(--accent-glow);
   text-decoration: none;
@@ -1614,7 +1619,7 @@ section.visible {
 .terminal-title {
   font-size: 1.2rem;
   color: var(--accent-glow);
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
 }
 
 .terminal-controls {
@@ -1653,7 +1658,7 @@ section.visible {
 
 .prompt {
   color: var(--accent-glow);
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
 }
 
 .terminal-input {
@@ -1667,7 +1672,7 @@ section.visible {
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--text-dim);
   transition: all 0.3s ease;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
 }
 
 .terminal-input:focus {
@@ -1685,7 +1690,7 @@ section.visible {
   transition: all 0.3s ease;
   margin-top: 1rem;
   box-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   position: relative;
   overflow: hidden;
 }
@@ -1836,7 +1841,7 @@ section.visible {
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 .access-btn:hover {
@@ -1880,7 +1885,7 @@ section.visible {
   border-radius: 4px;
   width: 100%;
   margin: 1.5rem 0;
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
   text-align: center;
   letter-spacing: 2px;
 }

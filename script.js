@@ -425,11 +425,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const items = Array.from(document.querySelectorAll(".timeline-item"));
     if (!items.length) return;
 
-    // Set the first item focused initially
-    items.forEach((it, idx) => it.classList.toggle("in-focus", idx === 0));
+    // Ensure everything is readable by default; first item marked in-focus
+    items.forEach((it, idx) => {
+      it.classList.toggle("in-focus", idx === 0);
+      it.style.filter = "none";
+      it.style.opacity = "1";
+      it.style.transform = "none";
+    });
 
     let ticking = false;
     function updateFocus() {
+      // Keep items clear and only toggle the semantic class
       const viewportCenter = window.innerHeight / 2;
       let bestIdx = 0;
       let bestDist = Infinity;
@@ -442,9 +448,12 @@ document.addEventListener("DOMContentLoaded", function () {
           bestIdx = idx;
         }
       });
-      items.forEach((item, idx) =>
-        item.classList.toggle("in-focus", idx === bestIdx)
-      );
+      items.forEach((item, idx) => {
+        item.classList.toggle("in-focus", idx === bestIdx);
+        item.style.filter = "none";
+        item.style.opacity = "1";
+        item.style.transform = "none";
+      });
     }
 
     function onScroll() {
