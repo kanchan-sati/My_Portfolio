@@ -914,7 +914,8 @@ section.visible {
 
 .timeline-content:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 35px var(--accent-glow);
+  /*box-shadow: 0 10px 35px var(--accent-glow);*/
+  box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
 }
 
 .timeline-content:hover::before {
@@ -978,7 +979,7 @@ section.visible {
 }
 
 .timeline-content:hover .timeline-hover-content {
-  max-height: 300px;
+  max-height: 550px;
 }
 
 .timeline-hover-content p {
